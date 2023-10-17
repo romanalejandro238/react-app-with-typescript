@@ -3,9 +3,15 @@ import {Sub, INITIAL_STATE} from './subs_interface';
 
 import './App.css';
 import List from './components/List';
+import Form from './components/Form';
+
+interface AppState{
+  subs: Array<Sub>
+  newSubsNumber : Number
+}
 
 function App() {
-  const [subs, setSubs] = useState<Array<Sub>>([])
+  const [subs, setSubs] = useState<AppState["subs"]>([])
 
   useEffect(()=>{
     setSubs(INITIAL_STATE)
@@ -16,6 +22,7 @@ function App() {
     <div className="App">
       <h1>subs</h1>
       <List subs={subs}></List>
+      <Form></Form>
     </div>
   );
 }
