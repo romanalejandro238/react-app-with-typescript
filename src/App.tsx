@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {Sub, INITIAL_STATE} from './subs_interface';
+import {Sub, INITIAL_STATE} from './subs_interface.tsx';
 
 import './App.css';
 import List from './components/List';
@@ -22,7 +22,7 @@ function App() {
     <div className="App">
       <h1>subs</h1>
       <List subs={subs}></List>
-      <Form></Form>
+      <Form onNewSub={setSubs}></Form>
     </div>
   );
 }
