@@ -1,21 +1,14 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
+import {Sub, INITIAL_STATE} from './subs_interface';
 
 import './App.css';
 
 function App() {
-  const [subs, setSubs] = useState(
-    [{
-      nick: 'name',
-      subMonth: 3,
-      avatar: 'https://i.pravatar.cc/150?u=name',
-      description: 'The first sub'
-    },
-    {
-      nick: 'name2',
-      subMonth: 1,
-      avatar: 'https://i.pravatar.cc/150?u=name2',
-    }]
-  )
+  const [subs, setSubs] = useState<Array<Sub>>([])
+
+  useEffect(()=>{
+    setSubs(INITIAL_STATE)
+  },[])
 
 
   return (
