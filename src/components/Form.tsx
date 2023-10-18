@@ -27,6 +27,11 @@ const Form = ({onNewSub} : FormProps) =>{
     }
 
     const handleChange = (e : React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>{
+        if(e.target.name === "subMonth"){
+            if(parseInt(e.target.value) < 0){
+                return
+            }
+        }
         setInputValues({
             ...inputValues,[e.target.name] : e.target.value
         })
