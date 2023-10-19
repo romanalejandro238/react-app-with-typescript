@@ -49,4 +49,5 @@ form input{
 textarea{
   font-family: inherit;
   margin-bottom: 8px;
+  resize: none;
 }
