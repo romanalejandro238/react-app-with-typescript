@@ -14,12 +14,12 @@ function App() {
   const [subs, setSubs] = useState<AppState["subs"]>([])
 
   useEffect(()=>{
-    const fetchSubs = (): Promise<Array<SubsResponseFromApi>> =>{
+    const fetchSubs = (): Promise<SubsResponseFromApi> =>{
       return fetch('http://localhost:3001/subs')
       .then(res => res.json())
     }
 
-    const mapFromApitoSubs = (apiResponse : SubsResponseFromApi) : Array<Sub> =>{
+    const mapFromApitoSubs = (apiResponse : SubsResponseFromApi ) : Sub[] =>{
       return apiResponse.map(subFromApi =>{
         const {
           months: subMonth,
@@ -38,10 +38,10 @@ function App() {
       })
     }
 
-    fetchSubs().then(apiSubs =>{
-      const subs = mapFromApitoSubs(apiSubs)
-      setSubs(subs)
-    })
+    fetchSubs()
+    .then(mapFromApitoSubs)
+    .then(setSubs)
+      
   },[])
 
   const handleNewSub = (newSub: Sub): void =>{
