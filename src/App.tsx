@@ -14,7 +14,7 @@ function App() {
   const [subs, setSubs] = useState<AppState["subs"]>([])
 
   useEffect(()=>{
-    const fetchSubs = (): Promise<Array<SubsResponseFromApi>> =>{
+    const fetchSubs = (): Promise<SubsResponseFromApi> =>{
       return fetch('http://localhost:3001/subs')
       .then(res => res.json())
     }
